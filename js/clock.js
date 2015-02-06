@@ -48,7 +48,7 @@ var insertAlarm = function(hours, mins, ampm, alarmName, id) {
 
 	newDiv.append(nameDiv);
 	newDiv.append(timeDiv);
-	newDiv.append(del);
+	newDiv.prepend(del);
 
 	$('#alarms').append(newDiv);
 }
