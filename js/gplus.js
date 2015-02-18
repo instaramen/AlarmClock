@@ -5,6 +5,13 @@ function signinCallback(authResult) {
     $('#signinButton').attr('style', 'display: none');
   } else {
     console.log('Sign-in state: ' + authResult['error']);
-    $('#signinButton').attr('style', 'display: show');    
   }
+}
+
+function render() {
+  var additionalParams = {
+    'theme': 'dark'
+  };
+
+  gapi.signin.render('signinButton');
 }

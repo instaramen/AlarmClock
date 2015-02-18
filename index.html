@@ -8,14 +8,9 @@
     </head>
     
     <body>
-        <div id="signinButton">
-          <div
-            class="g-signin"
-            data-callback="signinCallback"
-            data-clientid="309685935001-h38m2dmetejda1pj7992jifqla67a78e.apps.googleusercontent.com"
-            data-cookiepolicy="single_host_origin"
-            data-requestvisibleactions="http://schema.org/AddAction"
-            data-scope="https://www.googleapis.com/auth/plus.login">
+        <div>
+          <div id="signinButton">
+            Sign in with Google
           </div>
         </div>
         <div class='main'>
@@ -68,8 +63,15 @@
         </div>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>    
         <script src='https://www.parsecdn.com/js/parse-1.3.4.min.js'></script>
+        <script src="https://apis.google.com/js/client:platform.js?onload=render" async defer/>                
+        
         <script src='js/clock.js' type='text/javascript'></script>
-        <script src='js/gplus.js' type='text/javascript'></script>
-        <script src="https://apis.google.com/js/client:platform.js" async defer></script>        
+        <script src='js/gplus.js' type='text/javascript'></script>        
+
+        <meta name="google-signin-clientid" content="309685935001-h38m2dmetejda1pj7992jifqla67a78e.apps.googleusercontent.com" />
+        <meta name="google-signin-scope" content="https://www.googleapis.com/auth/plus.login" />
+        <meta name="google-signin-requestvisibleactions" content="http://schema.org/AddAction" />
+        <meta name="google-signin-cookiepolicy" content="single_host_origin" />
+        <meta name="google-signin-callback" content="signinCallback" /> 
     </body>
 </html>
