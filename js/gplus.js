@@ -17,7 +17,7 @@ var helper = (function() {
         }
         if (authResult['access_token']) {
           $('#authOps').show('slow');
-          $('#gConnect').hide();
+          // $('#gConnect').hide();
           helper.profile();
           helper.people();
         } else if (authResult['error']) {
@@ -104,7 +104,6 @@ var helper = (function() {
   };
 })();
 
-// G+ //
 function onSignInCallback(authResult) {
   helper.onSignInCallback(authResult);
 }
