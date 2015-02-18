@@ -71,7 +71,8 @@ var addAlarm = function() {
 }
 
 var getAllAlarms = function() {
-	Parse.initialize('XKz9LmIyfMKHCM5QSiQdWGcx2neaOjF8AhNI2me9', 'bXQ318Qh1rxSmjO3ukb25kYCeiolsi8lC8tQnMTq');	
+	Parse.initialize('XKz9LmIyfMKHCM5QSiQdWGcx2neaOjF8AhNI2me9',
+	 'bXQ318Qh1rxSmjO3ukb25kYCeiolsi8lC8tQnMTq');	
 
     var AlarmObject = Parse.Object.extend("Alarm");
     var query = new Parse.Query(AlarmObject);
