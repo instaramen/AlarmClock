@@ -8,59 +8,68 @@
     </head>
     
     <body>
-        <div>
-            <div class='main'>
-                Peter Tran's Clock        
-                <div id='clock'></div>
-                <div id='forecastLabel'></div>
-                <img id='forecastIcon' width='150' height='150' alt='icon'/>
+        <div id="gConnect">
+            <button class="g-signin"
+                data-scope="https://www.googleapis.com/auth/plus.login"
+                data-requestvisibleactions="http://schemas.google.com/AddActivity"
+                data-clientId="309685935001-h38m2dmetejda1pj7992jifqla67a78e.apps.googleusercontent.com"
+                data-callback="onSignInCallback"
+                data-theme="dark"
+                data-cookiepolicy="single_host_origin">
+            </button>
+        </div>        
+        <div class='main'>
+            Peter Tran's Clock        
+            <div id='clock'></div>
+            <div id='forecastLabel'></div>
+            <img id='forecastIcon' width='150' height='150' alt='icon'/>
+        </div>
+        <div id='alarmContainer'>
+            <div id='alarmHeader' class='flexible'>
+                <h2>Alarms</h2>
+                <input type='button' value='Add Alarm' class='button' onclick='showAlarmPopup()'/>  
+                <div id='alarms'></div>
             </div>
-            <div id='alarmContainer'>
-                <div id='alarmHeader' class='flexible'>
-                    <h2>Alarms</h2>
-                    <input type='button' value='Add Alarm' class='button' onclick='showAlarmPopup()'/>  
-                    <div id='alarms'></div>
-                </div>
-                <div id='mask' class='hide'></div>
-                <div id='popup' class='hide'>
-                    <h1>Add Alarm</h1>
-                    <div id='timeContainer'>
-                        <select id='hours'>
-                            <option>01</option>
-                            <option>02</option>
-                            <option>03</option>
-                            <option>04</option>
-                            <option>05</option>
-                            <option>06</option>
-                            <option>07</option>
-                            <option>08</option>
-                            <option>09</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                        </select>
-                        <select id='mins'>
-                            <option>00</option>
-                            <option>15</option>
-                            <option>30</option>
-                            <option>45</option>
-                        </select>
-                        <select id='ampm'>
-                            <option>am</option>
-                            <option>pm</option>
-                        </select>
-                        <input type='tex' id='alarmName' placeholder='Alarm Name'/>
-                        <div class='flexable'>
-                            <input type="button" value="Cancel" class="button" onclick='hideAlarmPopup()'/>
-                            <input type="button" value="Save Alarm" class="button" onclick='addAlarm()'/>
-                        </div>
+            <div id='mask' class='hide'></div>
+            <div id='popup' class='hide'>
+                <h1>Add Alarm</h1>
+                <div id='timeContainer'>
+                    <select id='hours'>
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        <option>04</option>
+                        <option>05</option>
+                        <option>06</option>
+                        <option>07</option>
+                        <option>08</option>
+                        <option>09</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <select id='mins'>
+                        <option>00</option>
+                        <option>15</option>
+                        <option>30</option>
+                        <option>45</option>
+                    </select>
+                    <select id='ampm'>
+                        <option>am</option>
+                        <option>pm</option>
+                    </select>
+                    <input type='tex' id='alarmName' placeholder='Alarm Name'/>
+                    <div class='flexable'>
+                        <input type="button" value="Cancel" class="button" onclick='hideAlarmPopup()'/>
+                        <input type="button" value="Save Alarm" class="button" onclick='addAlarm()'/>
                     </div>
                 </div>
-                            </div>
+            </div>
         </div>
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>    
         <script src='https://www.parsecdn.com/js/parse-1.3.4.min.js'></script>
         <script src='js/clock.js' type='text/javascript'></script>
+        <script src='js/gplus.js' type='text/javascript'></script>
 
     </body>
 </html>
