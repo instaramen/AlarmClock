@@ -6,7 +6,7 @@ var getTime = function() {
 }
 
 var updateBackground = function(data) {
-	var temp = data['daily'].temperatureMax; 
+	var temp = data['daily']['data']['temperatureMax']; 
 	var icon;
 
 	if (temp < 60) icon = 'cold';
@@ -16,6 +16,8 @@ var updateBackground = function(data) {
 	else icon = 'chilly';
 
 	$('body').addClass(icon);
+
+	console.log
 }
 
 var showAlarmPopup = function() {
