@@ -17,7 +17,7 @@ var updateBackground = function(data) {
 
 	$('body').addClass(icon);
 
-	console.log
+	console.log(temp);
 }
 
 var showAlarmPopup = function() {
