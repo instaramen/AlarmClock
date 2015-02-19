@@ -8,7 +8,6 @@ function signinCallback(authResult) {
   } else {
     console.log('Sign-in state: ' + authResult['error']);
     $('signinButton').attr('style', 'display: block');    
-    $('logoutButton').removeClass('hide');    
   }
 }
 
