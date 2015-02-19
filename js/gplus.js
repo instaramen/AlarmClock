@@ -3,10 +3,12 @@ function signinCallback(authResult) {
     // Update the app to reflect a signed in user
     console.log('Sign-in state: ' + authResult['error']);    
     console.log('hiding button...')
-    document.getElementById('signinButton').setAttribute('style', 'display: none');
+    $('signinButton').attr('style', 'display: none');
+    $('logoutButton').addClass('hide');    
   } else {
     console.log('Sign-in state: ' + authResult['error']);
-    document.getElementById('signinButton').setAttribute('style', 'display: block');    
+    $('signinButton').attr('style', 'display: block');    
+    $('logoutButton').removeClass('hide');    
   }
 }
 
