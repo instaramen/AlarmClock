@@ -26,7 +26,7 @@ function signinCallback(authResult) {
     // request2.done(function(obj) {
     //     $('#signinButton').append("Hello " + obj.displayName);
     // });
-
+	getAllAlarms();
   } else {
     console.log('Sign-in state: ' + authResult['error']);
   }
@@ -129,7 +129,6 @@ var getTemp = function() {
 			$('#forecastIcon').attr('src', 'img/'+data['daily'].icon+'.png');
 			updateBackground(data);
 		});
-		getAllAlarms();
 	});
 }
 
