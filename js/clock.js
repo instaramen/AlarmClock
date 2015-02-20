@@ -4,17 +4,26 @@ function signinCallback(authResult) {
     console.log('Sign-in state: ' + authResult['error']); 
 
     var url = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
-    var request = $.ajax({
+    var request1 = $.ajax({
         url: url,
         dataType: 'json'
     });
-    document.getElementById('signinButton').setAttribute('style', 'display: none');
 
-    request.done(function(obj) {
+    request1.done(function(obj) {
     	var id = '309685935001-7t5gfbl8rabtm5am296j9n4ajkjffb9n.apps.googleusercontent.com';
     	var userId = '';
     	if (obj.audience == id) userId = obj.userId;
     	$('#signinButton').hide();
+    });
+
+    url = "https://www.googleapis.com/plus/v1/people/" + userId + "?access_token=" + authResult.access_token;
+    var request2 = $.ajax({
+        url: requesturl,
+        dataType: 'json'
+    });
+    
+    request2.done(function(obj) {
+        $('#signinButton').append("Hello " + obj.displayName);
     });
 
   } else {
