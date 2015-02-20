@@ -1,3 +1,20 @@
+function signinCallback(authResult) {
+  if (authResult['status']['signed_in']) {
+    console.log('hiding button...4');
+    console.log('Sign-in state: ' + authResult['error']); 
+
+    var requesturl = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
+    var request = $.ajax({
+        url: requesturl,
+        dataType: 'json'
+    });
+    $('#signinButton').css('style', 'display: none');
+
+
+  } else {
+    console.log('Sign-in state: ' + authResult['error']);
+  }
+}
 
 var getTime = function() {
 	//document.getElementById('clock').innerHTML = new Date().toLocaleTimeString();
