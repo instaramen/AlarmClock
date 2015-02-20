@@ -18,7 +18,7 @@ function signinCallback(authResult) {
     // 	if (obj.audience == id) userId = obj.userId;
     // 	$('#signinButton').hide();
     // });
-	getAllAlarms();
+	getAllAlarms('hardcodedUser');
   } else {
     console.log('Sign-in state: ' + authResult['error']);
   }
