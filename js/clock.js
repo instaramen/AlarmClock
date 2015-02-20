@@ -1,6 +1,6 @@
 function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
-    console.log('hiding button...4');
+    console.log('hiding button...0');
     console.log('Sign-in state: ' + authResult['error']); 
 
     var requesturl = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
