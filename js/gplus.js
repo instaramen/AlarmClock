@@ -1,3 +1,5 @@
+var profile, email;
+
 function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
     console.log('hiding button...2');
