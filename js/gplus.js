@@ -3,7 +3,7 @@ function signinCallback(authResult) {
     // Update the app to reflect a signed in user
     console.log('Sign-in state: ' + authResult['error']);    
     console.log('hiding button...6')
-    document.getElementById('signinButton').setAttribute('style', 'display: none');
+    document.getElementById('gplus').setAttribute('style', 'display: none');
   } else {
     console.log('Sign-in state: ' + authResult['error']);
   }
