@@ -1,6 +1,6 @@
 function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
-    console.log('hiding button...2');
+    console.log('hiding button...4');
     $('#signinButton').css('style', 'display: none');
     // document.getElementById('signinButton').setAttribute('style', 'display: none');
     console.log('Sign-in state: ' + authResult['error']); 
