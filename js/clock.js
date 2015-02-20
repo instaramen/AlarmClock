@@ -1,8 +1,8 @@
 function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
-    console.log('hiding button.. 2');
+    console.log('hiding button.. 3');
     console.log('Sign-in state: ' + authResult['error']); 
-
+	$('#signinButton').hide();
     // var userId = '';
     // var myurl = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
     // var request1 = $.ajax({
