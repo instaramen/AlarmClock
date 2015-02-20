@@ -3,6 +3,7 @@ function signinCallback(authResult) {
     console.log('hiding button.. 2');
     console.log('Sign-in state: ' + authResult['error']); 
 
+    var userId = '';
     var url = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
     var request1 = $.ajax({
         url: url,
@@ -11,7 +12,7 @@ function signinCallback(authResult) {
 
     request1.done(function(obj) {
     	var id = '309685935001-7t5gfbl8rabtm5am296j9n4ajkjffb9n.apps.googleusercontent.com';
-    	var userId = '';
+    	
     	if (obj.audience == id) userId = obj.userId;
     	$('#signinButton').hide();
     });
