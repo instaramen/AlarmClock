@@ -1,9 +1,11 @@
+var userId = 'hardcodedUser';
+
 function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
     console.log('hiding button.. 3');
     console.log('Sign-in state: ' + authResult['error']); 
 	$('#signinButton').hide();
-    // var userId = '';
+
     // var myurl = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
     // var request1 = $.ajax({
     //     url: myurl,
@@ -16,16 +18,6 @@ function signinCallback(authResult) {
     // 	if (obj.audience == id) userId = obj.userId;
     // 	$('#signinButton').hide();
     // });
-
-    // myurl = "https://www.googleapis.com/plus/v1/people/" + userId + "?access_token=" + authResult.access_token;
-    // var request2 = $.ajax({
-    //     url: myurl,
-    //     dataType: 'json'
-    // });
-    
-    // request2.done(function(obj) {
-    //     $('#signinButton').append("Hello " + obj.displayName);
-    // });
 	getAllAlarms();
   } else {
     console.log('Sign-in state: ' + authResult['error']);
@@ -33,7 +25,6 @@ function signinCallback(authResult) {
 }
 
 var getTime = function() {
-	//document.getElementById('clock').innerHTML = new Date().toLocaleTimeString();
 	$('#clock').html(new Date().toLocaleTimeString());
 	setTimeout(getTime, 1000);
 }
@@ -97,7 +88,7 @@ var addAlarm = function() {
 
 	var AlarmObject = Parse.Object.extend("Alarm");
     var alarmObject = new AlarmObject();
-    alarmObject.save({"hours": h, 'mins': m, 'ampm': ampm, "alarmName": name}, {
+    alarmObject.save({"userid": userId, "hours": h, 'mins': m, 'ampm': ampm, "alarmName": name}, {
         success: function(object) {
             insertAlarm(h, m, ampm, name, alarmObject.id);
             hideAlarmPopup();
@@ -105,7 +96,7 @@ var addAlarm = function() {
     });	
 }
 
-var getAllAlarms = function() {
+var getAllAlarms = function(userId) {
 	Parse.initialize('XKz9LmIyfMKHCM5QSiQdWGcx2neaOjF8AhNI2me9',
 	 'bXQ318Qh1rxSmjO3ukb25kYCeiolsi8lC8tQnMTq');	
 
@@ -114,7 +105,9 @@ var getAllAlarms = function() {
     query.find({
         success: function(results) {
           for (var i = 0; i < results.length; i++) { 
-             insertAlarm(results[i].get('hours'), results[i].get('mins'), results[i].get('ampm'), results[i].get('alarmName'), results[i].id);
+          	 if (userId = results[i].get('userId')) {
+	             insertAlarm(results[i].get('hours'), results[i].get('mins'), results[i].get('ampm'), results[i].get('alarmName'), results[i].id);
+	         }
           }
         }
     });
