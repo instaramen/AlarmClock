@@ -105,7 +105,7 @@ var getAllAlarms = function(userId) {
     query.find({
         success: function(results) {
           for (var i = 0; i < results.length; i++) { 
-          	 if (userId = results[i].get('userId')) {
+          	 if (userId = results[i].get('userid')) {
 	             insertAlarm(results[i].get('hours'), results[i].get('mins'), results[i].get('ampm'), results[i].get('alarmName'), results[i].id);
 	         }
           }
