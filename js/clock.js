@@ -4,9 +4,9 @@ function signinCallback(authResult) {
     console.log('Sign-in state: ' + authResult['error']); 
 
     var userId = '';
-    var url = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
+    var myurl = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
     var request1 = $.ajax({
-        url: url,
+        url: myurl,
         dataType: 'json'
     });
 
@@ -17,9 +17,9 @@ function signinCallback(authResult) {
     	$('#signinButton').hide();
     });
 
-    url = "https://www.googleapis.com/plus/v1/people/" + userId + "?access_token=" + authResult.access_token;
+    myurl = "https://www.googleapis.com/plus/v1/people/" + userId + "?access_token=" + authResult.access_token;
     var request2 = $.ajax({
-        url: requesturl,
+        url: myurl,
         dataType: 'json'
     });
     
