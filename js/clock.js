@@ -1,6 +1,6 @@
 function signinCallback(authResult) {
   if (authResult['status']['signed_in']) {
-    console.log('hiding button...1');
+    console.log('hiding button.. 2');
     console.log('Sign-in state: ' + authResult['error']); 
 
     var url = "https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=".concat(authResult.access_token);
@@ -10,12 +10,12 @@ function signinCallback(authResult) {
     });
     document.getElementById('signinButton').setAttribute('style', 'display: none');
 
-    request.done(function(obj)) {
+    request.done(function(obj) {
     	var id = '309685935001-7t5gfbl8rabtm5am296j9n4ajkjffb9n.apps.googleusercontent.com';
     	var userId = '';
     	if (obj.audience == id) userId = obj.userId;
     	$('#signinButton').hide();
-    }
+    });
 
   } else {
     console.log('Sign-in state: ' + authResult['error']);
