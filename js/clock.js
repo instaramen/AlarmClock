@@ -61,6 +61,7 @@ var deleteAlarm = function(event) {
         success: function(result) {
            result.destroy({});
            $('#'+event.data.id).remove();
+           ga('send', 'event', 'Alarm', 'Delete');
         },
     });
 }
@@ -76,7 +77,7 @@ var insertAlarm = function(hours, mins, ampm, alarmName, id) {
 	newDiv.append(timeDiv);
 	newDiv.prepend(del);
 
-	$('#alarms').append(newDiv);
+	$('#alarms').append(newDiv);	
 }
 
 var addAlarm = function() {
@@ -92,6 +93,7 @@ var addAlarm = function() {
         success: function(object) {
             insertAlarm(h, m, ampm, name, alarmObject.id);
             hideAlarmPopup();
+            ga('send', 'event', 'Alarm', 'Add');
         }
     });	
 }
